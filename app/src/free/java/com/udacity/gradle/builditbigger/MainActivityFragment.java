@@ -23,14 +23,12 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         AdView mAdView = root.findViewById(R.id.adView);
-        if (!getResources().getBoolean(R.bool.isPaid)) {
-            AdRequest adRequest = new AdRequest.Builder()
-                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .build();
-            if (mAdView != null)
-                mAdView.loadAd(adRequest);
-        } else
-            mAdView.setVisibility(View.GONE);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        if (mAdView != null)
+            mAdView.loadAd(adRequest);
+
         return root;
     }
 }
